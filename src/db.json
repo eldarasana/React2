@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": "1729",
+      "name": "Saulius",
+      "age": 14
+    },
+    {
+      "id": "5940",
+      "name": "Petras",
+      "age": 8
+    },
+    {
+      "id": "ca6d",
+      "name": "Gronkas",
+      "age": -3
+    },
+    {
+      "id": "c95c",
+      "name": "Shliumbamparazashalyzatorius",
+      "age": -10
+    }
+  ]
+}
