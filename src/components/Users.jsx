@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-
+import { NavLink } from "react-router-dom";
 
 export default function Users(){
 
@@ -11,7 +11,7 @@ export default function Users(){
                 const response = await fetch('http://localhost:5000/users')
                 const data = await response.json()
                 if (response.ok) {
-                    set_users_list(data)
+                    set_users_list(data) // re-renders page
                     //console.log(data)
                 }else{
                     alert('Error getting user data')
@@ -34,7 +34,7 @@ export default function Users(){
         user_list_jsx = users_list.map( (user)=>{
             return(
                 <li key={user.id}> 
-                    {user.name}
+                    <NavLink to={`/users/${user.id}`}>{user.name}</NavLink>
                 </li>
             )
         }) 
