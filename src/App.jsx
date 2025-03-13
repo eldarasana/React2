@@ -26,7 +26,6 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/users' element={<Users/>}/>
           <Route path='/add_user' element={<AddUser/>}/>
-
         </Routes>
       
       </BrowserRouter>
