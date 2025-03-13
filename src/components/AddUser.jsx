@@ -1,13 +1,5 @@
 import { useState } from 'react';
 
-
-
-
-
-
-
-
-
 export default function AddUser(){
 
 
@@ -15,34 +7,33 @@ export default function AddUser(){
     const [ user_age_state, set_user_age ] = useState(0)
 
 
-
-
     async function save_user(name_state, age_state){
-        const newUser = { name:name_state, age:age_state }
-    
-        try{
-    
+        // create obj
+
+        const newUser = {name:name_state, age:age_state}
+
+        try {
+            
             const response = await fetch('http://localhost:5000/users', {
-                method: 'POST',
-                headers: {
+                method:'POST',
+                headers:{
                     'Content-Type':'application/json',
                 },
-                body: JSON.stringify(newUser)
+                body: JSON.stringify(newUser),
             })
-    
+
             const data = await response.json()
-    
-            if (response.ok){ alert('User saved successfully')}
-            else { 
-                console.error('Error', data)
-                alert('Error saving data')
+
+            if (response.ok) {
+                alert('Save success')
+            }else{
+                alert('Save failed')
             }
+
         } catch (error) {
-            console.error('Error', error)
-            alert('Error saving user')
+            console.error(error)
         }
     }
-
 
     return (
         <>
