@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { BrowserRouter, Router, Routes, Route, NavLink } from "react-router-dom";
 import './App.css'
-import Home from './components/Home.jsx'
-import Users from './components/Users.jsx'
-import AddUser from './components/AddUser.jsx'
-import User from './components/User.jsx'
+import Home from './pages/HomePage.jsx'
+import Users from './pages/UsersPage.jsx'
+import AddUser from './pages/AddUserPage.jsx'
+import User from './pages/UserPage.jsx'
+import EditUser from './pages/EditUserPage.jsx'
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
 
           {/* DYNAMIC ROUTES */}
           <Route path='/users/:id' element={<User/>}/>
+          <Route path='/edit_user/:id' element={<EditUser/>}/>
         </Routes>
       
       </BrowserRouter>

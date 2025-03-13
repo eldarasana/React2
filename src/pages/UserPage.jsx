@@ -1,16 +1,15 @@
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import UserComponent from '../components/UserComponent.jsx'
  
 
 export default function User(){
 
-
     const url_arg = useParams()
     const id = url_arg.id
-    const [user, set_user] = useState(null);
+    const [user_state , set_user_state] = useState(null);
     
     useEffect( ()=>{ 
-
         async function get_user_data(){
             try {
                 const response = await fetch(`http://localhost:5000/users/${id}`)                
@@ -18,37 +17,26 @@ export default function User(){
 
                 if (response.ok) {
                     // UPDATE STATE VARIABLE FOR USER DATA
-                    set_user(data)
+                    set_user_state(data)
                 }else {alert('Failed to retrieve user data')}
 
             } catch (error) {
                 console.error(error)
             }
         }
-
         get_user_data()
     }, [id])
 
     let display_user
 
-    if(user){
-        display_user = 
-            <ul>
-                <label>Name: </label>
-                {user.name}
-                <br></br>
-                <label>Age: </label>
-                {user.age}
-            </ul>
+    if(user_state){
+        display_user = <UserComponent user_state={user_state} />
     }else{ display_user=<p>Loading...</p>}
 
     return(
         <>
             <h1>DISPLAY USER</h1>
             {display_user}      
-        
         </>
-
-
     )
 }
