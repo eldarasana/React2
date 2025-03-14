@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom"
 import { useState, useEffect } from "react"
+import '../styles/UsersPage.css';
+import '../styles/elements/line_button.css';
 export default function Games(){
 
 
@@ -33,17 +35,21 @@ export default function Games(){
         games_list_jsx = obj_state.map((game)=>{
             return(
                 <li key={game.id}>
-                    <NavLink to={`/games/${game.id}`}>{game.name}</NavLink>
+                   
+                    <button className='line-button'>
+                        <NavLink to={`/games/${game.id}`} className="btn2"><span className="spn2">{game.name}</span></NavLink>
+                    </button>
+ 
                 </li>
             )
         })
     }
     return(
-        <>
-            <h1>Games</h1>
-            <ul>
-                {games_list_jsx}
-            </ul>
+        <>            
+            <div className='users-page-container'> 
+                <div className='h1-wrapper'><h1>Games</h1></div>
+                <ul>{games_list_jsx}</ul>
+            </div>
             
         </>
     )

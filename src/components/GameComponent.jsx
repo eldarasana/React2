@@ -11,15 +11,28 @@ export default function GameComponent( { game_state } ){
 
     return(
         <>
-        <ul>
-            <label>Title: </label>
-            {game_state.name}
-            <br></br>
-            <label>Release: </label>
-            {game_state.released}
-        </ul>
-        <button onClick={ ()=> navigate(`/edit_game/${game_state.id}`) }>Edit</button>
-        <Delete del_id={game_state.id} type='games'/>
+
+        <div className="rgb-card">
+            <p className="heading">{game_state.name}</p>
+            <p>Release : {game_state.released}</p>
+            <p>Id : {game_state.id}</p>
+        </div>
+
+        <div className='card-btn-container'>
+            <div className='subdivider'>
+                <div className='rgb-container'>
+                    <button 
+                        onClick={ ()=> navigate(`/edit_game/${game_state.id}`) }>Edit</button>
+                </div>
+            </div>
+
+            <div className='subdivider'>
+                <div className='rgb-container'>
+                    <Delete del_id={game_state.id} type='games'/>
+                </div>
+            </div>
+        </div>
+
         </>
     )
 }

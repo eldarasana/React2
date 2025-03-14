@@ -19,6 +19,9 @@ export default function Save({obj_state, type}){
         }
     }
     return(
-        <button  onClick={  ()=>{ save(obj_state)  } } >SAVE COMPONENT</button>
+        <div className='rgb-container'>
+            <button  onClick={  ()=>{ save(obj_state)  } } >Save</button>
+        </div>
+        
     )
 }

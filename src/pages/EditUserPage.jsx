@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import Update from '../components/buttons/Update'
+import '../styles/EditUserPage.css'
+import '../styles/elements/simple_input.css'
 
 export default function EditUser(){
 
@@ -29,34 +31,53 @@ export default function EditUser(){
     let display_user
     if(user_state){
         display_user = 
-        <ul>
-            <label>Name</label> 
-            <br></br>
-            {user_state.name}
-            <br></br>
-            <label>Age</label>
-            <br></br>
-            {user_state.age}
-        </ul>
+        <div className='card_wrapper'>
+            <div className="rgb-card">
+            <p className="heading">{user_state.name}</p>
+            <p>Age : {user_state.age}</p>
+            <p>Id : {user_state.id}</p>
+            </div>
+        </div>
+
     }else{
         display_user = <p>Loading...</p>
     }
 
     return(
         <>
-            <h1>Edit User</h1>
+            <h1 className='edit-user-header'>Edit User</h1>
             {display_user}
-            <label>New name</label> 
-            <input 
-                onChange={ (e)=>{ set_user_state( state => state ? {...state, name:e.target.value} : state ) } }
-                value={user_state?.name || ''}/>
-            <br></br>
-            <label>New age</label>
-            <button onClick={ (e)=>{ set_user_state(  (state) => {return {...state, age:state.age+1}})}}>+</button>
-            <span>{user_state?.age || 0}</span>
-            <button onClick={ (e)=>{ set_user_state(  (state) => { return {...state, age:state.age-1}})}}>-</button>
-
-            <Update updated_obj={user_state} type='users'/>
+            <div className='form-wrapper'>
+                <div className='simple-input-wrapper'>
+                    <div className="input-group">
+                    <input required="" type="text" name="text" autoComplete="off" className="input"
+                        onChange={ (e)=>{ set_user_state( state => state ? {...state, name:e.target.value} : state ) } }
+                        value={user_state?.name || ''}
+                    />
+                    <label className="user-label">Name</label>
+                    </div>
+                </div>
+                <div className='age_part_wrapper'>
+                    <label className='num_change_label'>New age</label>
+                    <div className='plus-minus-wrapper'>
+                        <div className='rgb-container-wrapper'>
+                            <div className='rgb-container'>
+                                <button onClick={ (e)=>{ set_user_state(  (state) => {return {...state, age:state.age+1}})}}>+</button>
+                            </div>
+                        </div>
+                        <div className='span-wrapper'>
+                            <span>{user_state?.age || 0}</span>
+                        </div>
+                        <div className='rgb-container-wrapper'>
+                            <div className='rgb-container'>
+                                <button onClick={ (e)=>{ set_user_state(  (state) => { return {...state, age:state.age-1}})}}>-</button>
+                            </div>
+                        </div>
+                        <Update updated_obj={user_state} type='users'/>
+                    </div>
+                </div>
+            </div>
+            
         </>
     )
 }

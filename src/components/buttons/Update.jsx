@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import '../../styles/elements/rgb_button.css'
 
 
 export default function Update( {updated_obj, type} ){
@@ -28,6 +29,10 @@ export default function Update( {updated_obj, type} ){
     }
 
     return(
-        <button onClick={ ()=>{ update() } }>Update</button>
+
+        <div className='rgb-container'>
+            <button onClick={ ()=>{ update() } }>Update</button>
+        </div>
+        
     )
 }

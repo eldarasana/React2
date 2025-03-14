@@ -1,7 +1,9 @@
-
+import '../styles/HomePage.css'
 
 export default function Home(){
     return(
-        <h1>HOME</h1>
+        <div className="HomeHeader">
+            <h1>Home</h1>
+        </div>
     )
 }

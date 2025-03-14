@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { NavLink } from "react-router-dom";
+import '../styles/UsersPage.css';
+import '../styles/elements/line_button.css';
 
 
 export default function Users(){
@@ -35,15 +37,23 @@ export default function Users(){
         user_list_jsx = obj_state.map( (user)=>{
             return(
                 <li key={user.id}> 
-                    <NavLink to={`/users/${user.id}`}>{user.name}</NavLink>
+                    {/* <NavLink to={`/users/${user.id}`}>{user.name}</NavLink> */}
+                    <button className='line-button'>
+                        <NavLink to={`/users/${user.id}`} className="btn2"><span className="spn2">{user.name}</span></NavLink>
+                    </button>
                 </li>
+
             )
         }) 
     }
     return (
         <>
-            <h1>Users pagess</h1>
-            <ul>{user_list_jsx}</ul>
+
+            <div className='users-page-container'> 
+                <div className='h1-wrapper'><h1>Users</h1></div>
+                <ul>{user_list_jsx}</ul>
+            </div>
+
            
         </>
     )

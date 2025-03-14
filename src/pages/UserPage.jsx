@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import UserComponent from '../components/UserComponent.jsx'
+import '../styles/UserPage.css';
 
 export default function User(){
     const { id } = useParams()
@@ -37,8 +38,11 @@ export default function User(){
 
     return(
         <>
-            <h1>DISPLAY USER</h1>
-            {display_user}      
+            <div className='users-container'>
+                <h1 className='display-user-header'>DISPLAY USER</h1>
+                <div className='display-user-component-wrapper'>{display_user}</div>
+            </div>
+  
         </>
     )
 }

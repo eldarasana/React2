@@ -1,0 +1,29 @@
+.HomeHeader{
+    display: inline-block;
+    position:absolute;
+    padding:5px 9px;
+    top:107px;
+    left:232px;
+    background: linear-gradient(90deg, #03a9f4, #f441a5);
+
+
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.HomeHeader h1{
+    padding:0px;
+    margin:0px;
+}
+
+
+.display-user-header{
+    position:absolute;
+    padding:5px 9px;
+    top:107px;
+    left:232px;
+
+    /* background: blue; */
+    background: linear-gradient(90deg, #03a9f4, #f441a5);
+}

@@ -39,8 +39,13 @@ export default function Game(){
     }
     return(
         <>
-            <h1>DISPLAY GAME</h1>
-            {display_game}      
+
+            <div className='users-container'>
+                <h1 className='display-user-header'>DISPLAY GAME</h1>
+                <div className='display-user-component-wrapper'>{display_game}</div>
+            </div>
+
+
         </>
     )
 }

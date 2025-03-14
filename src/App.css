@@ -1,10 +1,12 @@
 body{
-    background-color: #242424;
+    /* background-color: #242424; */
+    background-color: black;
 }
 
 :root {
     --button-color: rgb(58, 177, 177);
     --button-secondary-color: rgb(58, 177, 98);
+    --main-background: black;
 }
 
 * {
@@ -15,14 +17,12 @@ body{
 a {
     text-decoration:none;
 }
+ul {
+    list-style: none;
+    padding: 0;  /* Optional: Removes default left padding */
+    margin: 0;   /* Optional: Removes default top/bottom margin */
+  }
 
-.active{
-    text-shadow: 0 0 20px white;
-}
-
-a {
-    margin:10px;
-}
 
 input {
     background: transparent;
@@ -31,16 +31,27 @@ input {
     margin: 10px;
 }
 
-
-button {
+/* button {
     margin:10px;
     background: var(--button-color);
     border: none;
     box-shadow: 0 0 5px var(--button-color);
-}
+} */
 
-button:hover {
-    cursor: pointer;
-    box-shadow: none;
-    background: var(--button-secondary-color)
+
+
+.NavLinks{
+    margin-top:25px;
+    margin-bottom:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:50px;
 }
+/* 
+.NavLinks a{
+    background:var(--button-color);
+    padding-left:1%;
+    padding-right:1%;
+    height: 25px;
+} */

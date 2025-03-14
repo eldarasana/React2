@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Save from '../components/buttons/Save';
+import '../styles/AddUserPage.css';
 
 export default function AddUser(){
 
@@ -8,19 +9,41 @@ export default function AddUser(){
 
     return (
         <>
-            <h1>ADD USER PAGE</h1>
-
-            <label htmlFor='name-input'>Name</label>
-            <input id='name-input' onChange= {(e)=>{ set_user_obj_state( (state) => {return {...state, name:e.target.value }})}} value={user_obj_state.name}  ></input>
-            <br></br>
-            <label>Age</label>
-            <button onClick={ (e)=>{ set_user_obj_state(  (state) => {return {...state, age:state.age+1}})}}>+</button>
-            <span>{user_obj_state.age}</span>
-            <button onClick={ (e)=>{ set_user_obj_state(  (state) => { return {...state, age:state.age-1}})}}>-</button>
-            
-            <br></br>
-
-            <Save obj_state={user_obj_state} type='users'/>
+            <div className='h1-wrapper-wrapper'>
+                <h1 className='h1-wrapper'>ADD USER PAGE</h1>
+            </div>
+            <div className='add-user-form-wrapper'>
+            <div className='simple-input-wrapper'>
+                    <div className="input-group">
+                    <input required="" type="text" name="text" autoComplete="off" className="input"
+                        onChange= {(e)=>{ set_user_obj_state( (state) => {return {...state, name:e.target.value }})}}
+                        value={user_obj_state.name}  
+                    />
+                    <label className="user-label">Name</label>
+                    </div>
+                </div>
+                <div className='age_part_wrapper'>
+                    <label className='num_change_label'>Age</label>
+                    <div className='plus-minus-wrapper'>
+                        <div className='rgb-container-wrapper'>
+                            <div className='rgb-container'>
+                                <button 
+                                onClick={ (e)=>{ set_user_obj_state(  (state) => {return {...state, age:state.age+1}})}}>+</button>
+                            </div>
+                        </div>
+                        <div className='span-wrapper'>
+                            <span> {user_obj_state.age}</span>
+                        </div>
+                        <div className='rgb-container-wrapper'>
+                            <div className='rgb-container'>
+                                <button 
+                                onClick={ (e)=>{ set_user_obj_state(  (state) => { return {...state, age:state.age-1}})}}>-</button>
+                            </div>
+                        </div>
+                        <Save obj_state={user_obj_state} type='users'/>
+                    </div>
+                </div>
+            </div>
 
         </>
     )

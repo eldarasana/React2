@@ -1,0 +1,29 @@
+.users-page-container{
+    margin-top:70px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.users-page-container ul{
+    flex:1;
+}
+
+.users-page-container li{
+    margin: 5px;
+}
+.users-page-container .h1-wrapper{
+    /* align-self: center; */
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.users-page-container .h1-wrapper h1{
+
+
+    padding:6px 30px;
+    background: linear-gradient(90deg, #03a9f4, #f441a5);
+    
+}
