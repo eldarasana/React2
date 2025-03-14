@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Save from '../components/buttons/Save';
 import '../styles/AddUserPage.css';
+// import AddUserIcon from '../assets/add_user.png'; // Adjust the path
 
 export default function AddUser(){
 
@@ -44,6 +45,10 @@ export default function AddUser(){
                     </div>
                 </div>
             </div>
+
+            {/* <div className='add-user-icon-wrapper'>
+                <img src={AddUserIcon} alt="Description" />
+            </div> */}
 
         </>
     )
