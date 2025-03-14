@@ -1,12 +1,12 @@
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import UserComponent from '../components/UserComponent.jsx'
+import GameComponent from '../components/GameComponent.jsx'
+import { useState, useEffect } from 'react'
 
-export default function User(){
+export default function Game(){
     const { id } = useParams()
-   
+  
     // FETCH ID
-    const type='users'
+    const type='games'
     const [obj_state , set_obj_state] = useState(null);
     useEffect(()=>{
         async function get_obj_data(){
@@ -26,19 +26,21 @@ export default function User(){
     },[type, id])
     // FETCH ID
 
-    let display_user
 
+    let display_game
 
     if(obj_state){
-        display_user = <UserComponent user_state={obj_state} />
+        display_game = <GameComponent game_state={obj_state} />
+        if (obj_state.lengh<1) {
+            display_game= <p>Games list is empty</p>
+        }
     }else{ 
-        display_user=<p>Loading...</p>
+        display_game=<p>Loading...</p>
     }
-
     return(
         <>
-            <h1>DISPLAY USER</h1>
-            {display_user}      
+            <h1>DISPLAY GAME</h1>
+            {display_game}      
         </>
     )
 }

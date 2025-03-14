@@ -1,24 +1,21 @@
 {
   "users": [
     {
-      "id": "43b6",
-      "name": "Kratos",
-      "age": 106
+      "id": "a10f",
+      "name": "Rockye",
+      "age": 9
     },
     {
-      "id": "b4a2",
-      "name": "Goku",
-      "age": 25
-    },
-    {
-      "id": "fd60",
-      "name": "Teemo",
-      "age": 1
-    },
-    {
-      "id": "c03c",
-      "name": "Shnautenburger",
+      "id": "1796",
+      "name": "Pauli",
       "age": 14
+    }
+  ],
+  "games": [
+    {
+      "id": "546e",
+      "name": "Fart7",
+      "released": 2007
     }
   ]
 }

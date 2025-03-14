@@ -19,7 +19,7 @@ export default function UserComponent( { user_state } ){
             {user_state.age}
         </ul>
         <button onClick={ ()=> navigate(`/edit_user/${user_state.id}`) }>Edit</button>
-        <Delete del_id={user_state.id}/>
+        <Delete del_id={user_state.id} type='users'/>
         </>
     )
 }

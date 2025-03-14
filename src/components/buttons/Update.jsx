@@ -1,24 +1,24 @@
 import { useNavigate } from "react-router-dom"
 
 
-export default function Update( {updated_user_obj} ){
+export default function Update( {updated_obj, type} ){
 
     const navigator = useNavigate()
     
-    async function update_user(g_user){
+    async function update(){
         try {
-            const response = await fetch(`http://localhost:5000/users/${g_user.id}`,
+            const response = await fetch(`http://localhost:5000/${type}/${updated_obj.id}`,
                 {
                     method:'PUT', 
-                    body: JSON.stringify(g_user), 
+                    body: JSON.stringify(updated_obj), 
                     headers:{
                         'Content-Type':'application/json'
                     }
                 }
             )
             if (response.ok) {
-                alert('User updated')
-                navigator('/users')
+                alert('Update success')
+                navigator(`/`)
             }else{
                 alert('Update failed')
             }
@@ -28,6 +28,6 @@ export default function Update( {updated_user_obj} ){
     }
 
     return(
-        <button onClick={ ()=>{ update_user( updated_user_obj ) } }>Update</button>
+        <button onClick={ ()=>{ update() } }>Update</button>
     )
 }

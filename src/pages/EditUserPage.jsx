@@ -8,7 +8,7 @@ export default function EditUser(){
     const uid = url_arg.id
     const [user_state, set_user_state] = useState(null)
   
-
+    
     useEffect(()=>{
         async function get_user_data(){
             try {
@@ -33,6 +33,7 @@ export default function EditUser(){
             <label>Name</label> 
             <br></br>
             {user_state.name}
+            <br></br>
             <label>Age</label>
             <br></br>
             {user_state.age}
@@ -41,20 +42,21 @@ export default function EditUser(){
         display_user = <p>Loading...</p>
     }
 
-    //prev => prev ? { ...prev, name: e.target.value 
     return(
         <>
-
-            <h1>EditUserPage{uid}</h1>
+            <h1>Edit User</h1>
             {display_user}
-
             <label>New name</label> 
             <input 
                 onChange={ (e)=>{ set_user_state( state => state ? {...state, name:e.target.value} : state ) } }
                 value={user_state?.name || ''}/>
             <br></br>
             <label>New age</label>
-            <Update updated_user_obj={user_state} />
+            <button onClick={ (e)=>{ set_user_state(  (state) => {return {...state, age:state.age+1}})}}>+</button>
+            <span>{user_state?.age || 0}</span>
+            <button onClick={ (e)=>{ set_user_state(  (state) => { return {...state, age:state.age-1}})}}>-</button>
+
+            <Update updated_obj={user_state} type='users'/>
         </>
     )
 }
