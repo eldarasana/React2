@@ -2,8 +2,8 @@
   "users": [
     {
       "id": "1796",
-      "name": "Pauli",
-      "age": 17
+      "name": "Paulius d.",
+      "age": 18
     },
     {
       "id": "bcff",
@@ -26,9 +26,9 @@
       "age": 26
     },
     {
-      "id": "427a",
-      "name": "adfasdf",
-      "age": 3
+      "id": "39b2",
+      "name": "Frankas J.",
+      "age": 24
     }
   ],
   "games": [
@@ -62,6 +62,16 @@
       "id": "2a4e",
       "name": "CS:GO",
       "released": 2020
+    },
+    {
+      "id": "e31c",
+      "name": "RUST ",
+      "released": 2011
+    },
+    {
+      "id": "28cf",
+      "name": "Vaflis 13",
+      "released": 2010
     }
   ]
 }

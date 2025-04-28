@@ -2,39 +2,39 @@ import { useNavigate } from 'react-router-dom'
 import Delete from './buttons/Delete'
 import '../styles/elements/rgb_card.css'
 
-export default function UserComponent( { user_state } ){
+export default function UserComponent({ user_state }) {
 
     const navigator = useNavigate()
 
-    function navigate(route){
+    function navigate(route) {
         navigator(route)
     }
 
-    return(
+    return (
         <>
 
-            
 
 
-        <div className="rgb-card">
-            <p className="heading">{user_state.name}</p>
-            <p>Age : {user_state.age}</p>
-            <p>Id : {user_state.id}</p>
-        </div>
 
-        <div className='card-btn-container'>
-            <div className='subdivider'>
-                <div className='rgb-container'>
-                    <button onClick={ ()=> navigate(`/edit_user/${user_state.id}`) }>Edit</button>
-                </div>
+            <div className="rgb-card">
+                <p className="heading">{user_state.name}</p>
+                <p>Age : {user_state.age}</p>
+                <p>Id : {user_state.id}</p>
             </div>
 
-            <div className='subdivider'>
-                <div className='rgb-container'>
-                    <Delete del_id={user_state.id} type='users'/>
+            <div className='card-btn-container'>
+                <div className='subdivider'>
+                    <div className='rgb-container'>
+                        <button onClick={() => navigate(`/edit_user/${user_state.id}`)}>Edit</button>
+                    </div>
+                </div>
+
+                <div className='subdivider'>
+                    <div className='rgb-container'>
+                        <Delete del_id={user_state.id} type='users' />
+                    </div>
                 </div>
             </div>
-        </div>
 
 
 

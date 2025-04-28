@@ -32,17 +32,7 @@ export default function EditGame(){
     let display_game
     if(obj_state){
         display_game = 
-        // <ul>
-        //     <label>Title</label> 
-        //     <br></br>
-        //     {obj_state.name}
-        //     <br></br>
-        //     <label>Released</label>
-        //     <br></br>
-        //     {obj_state.released}
-        // </ul>
-
-
+        
         <div className='card_wrapper'>
             <div className="rgb-card">
                 <p className="heading">{obj_state.name}</p>
@@ -62,24 +52,6 @@ export default function EditGame(){
 
     return(
         <>
-            {/* <h1>Edit Game</h1>
-            {display_game}
-            <label>New title</label> 
-            <input 
-                onChange={ (e)=>{ set_obj_state( state => state ? {...state, name:e.target.value} : state ) } }
-                value={obj_state?.name || ''}/>
-            <br></br>
-            <label>New release date</label>
-            <button 
-                onClick={ (e)=>{ set_obj_state(  (state) => {return {...state, released:state.released+1}})}}>+</button>
-            <span>{obj_state?.released || 0}</span>
-            <button 
-                onClick={ (e)=>{ set_obj_state(  (state) => { return {...state, age:state.released-1}})}}>-</button>
-            <Update updated_obj={obj_state} type='games'/> */}
-
-
-
-            {/* NEW */}
             <h1 className='edit-user-header'>Edit Game</h1>
             {display_game}
             <div className='form-wrapper'>
