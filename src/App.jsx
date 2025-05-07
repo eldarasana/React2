@@ -1,65 +1,76 @@
-import { useState } from 'react'
-import { BrowserRouter, Router, Routes, Route, NavLink } from "react-router-dom";
-import Home from './pages/HomePage.jsx'
-import Users from './pages/UsersPage.jsx'
-import AddUser from './pages/AddUserPage.jsx'
-import AddGame from './pages/AddGamePage.jsx';
-import User from './pages/UserPage.jsx'
-import EditUser from './pages/EditUserPage.jsx'
-import EditGame from './pages/EditGamePage.jsx';
-import Games from './pages/GamesPage.jsx';
-import Game from './pages/GamePage.jsx';
-import './App.css'
+import React from 'react';
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+
+import HomePage    from './pages/HomePage.jsx';
+import UsersPage   from './pages/UsersPage.jsx';
+import AddUserPage from './pages/AddUserPage.jsx';
+import UserPage    from './pages/UserPage.jsx';
+import EditUserPage from './pages/EditUserPage.jsx';
+
+import GamesPage    from './pages/GamesPage.jsx';
+import AddGamePage  from './pages/AddGamePage.jsx';
+import GamePage     from './pages/GamePage.jsx';
+import EditGamePage from './pages/EditGamePage.jsx';
+
+import NewsPage from './pages/NewsPage.jsx'; // Ensure this import is correct
+
+import './App.css';
 import './styles/elements/rgb_button.css';
 
-
 function App() {
-
   return (
-    <>
-      <BrowserRouter>
-    
-        <div className="NavLinks">
-          <div className='rgb-container'>
-            <NavLink to='/' activeclassname='active'>Home</NavLink>
-          </div>
-          
-          <div className='rgb-container'>
-            <NavLink to='/users' activeclassname='active'>Users</NavLink>
-          </div>
-          
-          <div className='rgb-container'>
-            <NavLink to='/add_user' activeclassname='active'>Add User</NavLink>
-          </div>
-          
-
-          <div className='rgb-container'>
-            <NavLink to='/games' activeclassname='active'>Games</NavLink>
-          </div>
-          
-
-          <div className='rgb-container'>
-            <NavLink to='/add_game' activeclassname='active'>Add Game</NavLink>
-          </div>
-          
+    <BrowserRouter>
+      <nav className="NavLinks">
+        <div className="rgb-container">
+          <NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''}>
+            Home
+          </NavLink>
         </div>
-      
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/users' element={<Users/>}/>
-          <Route path='/add_user' element={<AddUser/>}/>
-          <Route path='/games' element={<Games/>}/>
-          <Route path='/add_game' element={<AddGame/>}/>
+        <div className="rgb-container">
+          <NavLink to="/users" className={({ isActive }) => isActive ? 'active' : ''}>
+            Users
+          </NavLink>
+        </div>
+        <div className="rgb-container">
+          <NavLink to="/add_user" className={({ isActive }) => isActive ? 'active' : ''}>
+            Add User
+          </NavLink>
+        </div>
+        <div className="rgb-container">
+          <NavLink to="/games" className={({ isActive }) => isActive ? 'active' : ''}>
+            Games
+          </NavLink>
+        </div>
+        <div className="rgb-container">
+          <NavLink to="/add_game" className={({ isActive }) => isActive ? 'active' : ''}>
+            Add Game
+          </NavLink>
+        </div>
+        <div className="rgb-container">
+          <NavLink to="/news" className={({ isActive }) => isActive ? 'active' : ''}>
+            News
+          </NavLink>
+        </div>
+      </nav>
 
-          {/* DYNAMIC ROUTES */}
-          <Route path='/users/:id' element={<User/>}/>
-          <Route path='/games/:id' element={<Game/>}/>
-          <Route path='/edit_user/:id' element={<EditUser/>}/>
-          <Route path='/edit_game/:id' element={<EditGame/>}/>
-        </Routes>
-      </BrowserRouter>
-    </>
-  )
+      <Routes>
+        <Route path="/"         element={<HomePage />} />
+        <Route path="/users"    element={<UsersPage />} />
+        <Route path="/add_user" element={<AddUserPage />} />
+        <Route path="/news"     element={<NewsPage />} />
+
+        <Route path="/games"     element={<GamesPage />} />
+        <Route path="/add_game"  element={<AddGamePage />} />
+
+        {/* dynamic routes */}
+        <Route path="/users/:id"     element={<UserPage />} />
+        <Route path="/edit_user/:id" element={<EditUserPage />} />
+
+        <Route path="/games/:id"      element={<GamePage />} />
+        <Route path="/edit_game/:id"  element={<EditGamePage />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

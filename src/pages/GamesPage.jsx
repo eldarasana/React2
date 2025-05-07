@@ -11,7 +11,7 @@ export default function Games(){
     useEffect(()=>{
         async function get_obj_data(){
             try {
-                const response = await fetch(`http://localhost:5000/${type}`)
+                const response = await fetch(`http://localhost:5000/api/${type}`)
                 const data = await response.json()
                 if (response.ok) {
                     set_obj_state(data)
@@ -32,17 +32,15 @@ export default function Games(){
     if (obj_state.length<1) {
         games_list_jsx = <p>Games list is empty</p>
     }else{
-        games_list_jsx = obj_state.map((game)=>{
-            return(
-                <li key={game.id}>
-                   
-                    <button className='line-button'>
-                        <NavLink to={`/games/${game.id}`} className="btn2"><span className="spn2">{game.name}</span></NavLink>
-                    </button>
- 
-                </li>
-            )
-        })
+        games_list_jsx= obj_state.map(game => (
+            <li key={game._id}>
+              <button className="line-button">
+                <NavLink to={`/games/${game._id}`} className="btn2">
+                  <span className="spn2">{game.title}</span>
+                </NavLink>
+              </button>
+            </li>
+          ))
     }
     return(
         <>            

@@ -11,7 +11,7 @@ export default function Game(){
     useEffect(()=>{
         async function get_obj_data(){
             try {
-                const response = await fetch(`http://localhost:5000/${type}/${id}`)
+                const response = await fetch(`http://localhost:5000/api/games/${id}`)
                 const data = await response.json()
                 if (response.ok) {
                     set_obj_state(data)
@@ -31,9 +31,6 @@ export default function Game(){
 
     if(obj_state){
         display_game = <GameComponent game_state={obj_state} />
-        if (obj_state.lengh<1) {
-            display_game= <p>Games list is empty</p>
-        }
     }else{ 
         display_game=<p>Loading...</p>
     }

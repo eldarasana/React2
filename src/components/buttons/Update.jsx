@@ -8,7 +8,7 @@ export default function Update( {updated_obj, type} ){
     
     async function update(){
         try {
-            const response = await fetch(`http://localhost:5000/${type}/${updated_obj.id}`,
+            const response = await fetch(`http://localhost:5000/api/${type}/${updated_obj._id}`,
                 {
                     method:'PUT', 
                     body: JSON.stringify(updated_obj), 

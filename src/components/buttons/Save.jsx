@@ -2,7 +2,7 @@ export default function Save({obj_state, type}){
 
     async function save(newObj){
         try {
-            const response = await fetch(`http://localhost:5000/${type}`, {
+            const response = await fetch(`http://localhost:5000/api/${type}`, {
                 method:'POST',
                 headers:{
                     'Content-Type':'application/json',

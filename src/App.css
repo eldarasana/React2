@@ -1,12 +1,26 @@
-body{
-    /* background-color: #242424; */
-    background-color: black;
+body {
+    background: linear-gradient(-45deg, #88227a, #5a89c7, #7b367e, #9faec9);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
 }
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 
 :root {
     --button-color: rgb(58, 177, 177);
     --button-secondary-color: rgb(58, 177, 98);
-    --main-background: black;
+    --main-background: rgb(0, 0, 0);
 }
 
 * {
@@ -19,8 +33,8 @@ a {
 }
 ul {
     list-style: none;
-    padding: 0;  /* Optional: Removes default left padding */
-    margin: 0;   /* Optional: Removes default top/bottom margin */
+    padding: 0;
+    margin: 0; 
   }
 
 
@@ -31,14 +45,6 @@ input {
     margin: 10px;
 }
 
-/* button {
-    margin:10px;
-    background: var(--button-color);
-    border: none;
-    box-shadow: 0 0 5px var(--button-color);
-} */
-
-
 
 .NavLinks{
     margin-top:25px;
@@ -48,10 +54,3 @@ input {
     justify-content:center;
     gap:50px;
 }
-/* 
-.NavLinks a{
-    background:var(--button-color);
-    padding-left:1%;
-    padding-right:1%;
-    height: 25px;
-} */

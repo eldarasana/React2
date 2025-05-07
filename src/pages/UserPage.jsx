@@ -12,7 +12,7 @@ export default function User(){
     useEffect(()=>{
         async function get_obj_data(){
             try {
-                const response = await fetch(`http://localhost:5000/${type}/${id}`)
+                const response = await fetch(`http://localhost:5000/api/users/${id}`)
                 const data = await response.json()
                 if (response.ok) {
                     set_obj_state(data)

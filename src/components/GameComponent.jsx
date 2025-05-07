@@ -13,22 +13,23 @@ export default function GameComponent( { game_state } ){
         <>
 
         <div className="rgb-card">
-            <p className="heading">{game_state.name}</p>
-            <p>Release : {game_state.released}</p>
-            <p>Id : {game_state.id}</p>
+            <p className="heading">{game_state.title}</p>
+            <p>Genre: {game_state.genre}</p>
+            <p>Release : {game_state.releaseDate.split("T")[0]}</p>
+            <p>Id : {game_state._id}</p>
         </div>
 
         <div className='card-btn-container'>
             <div className='subdivider'>
                 <div className='rgb-container'>
                     <button 
-                        onClick={ ()=> navigate(`/edit_game/${game_state.id}`) }>Edit</button>
+                        onClick={ ()=> navigate(`/edit_game/${game_state._id}`) }>Edit</button>
                 </div>
             </div>
 
             <div className='subdivider'>
                 <div className='rgb-container'>
-                    <Delete del_id={game_state.id} type='games'/>
+                    <Delete del_id={game_state._id} type='games'/>
                 </div>
             </div>
         </div>

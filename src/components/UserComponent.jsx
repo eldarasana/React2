@@ -25,13 +25,13 @@ export default function UserComponent({ user_state }) {
             <div className='card-btn-container'>
                 <div className='subdivider'>
                     <div className='rgb-container'>
-                        <button onClick={() => navigate(`/edit_user/${user_state.id}`)}>Edit</button>
+                        <button onClick={() => navigate(`/edit_user/${user_state._id}`)}>Edit</button>
                     </div>
                 </div>
 
                 <div className='subdivider'>
                     <div className='rgb-container'>
-                        <Delete del_id={user_state.id} type='users' />
+                        <Delete del_id={user_state._id} type='users' />
                     </div>
                 </div>
             </div>

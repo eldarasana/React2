@@ -1,10 +1,11 @@
 .rgb-container a {
   display:flex;
   margin:0px;
-  font-size: 1em;
-  padding: 10px 12px;
+  font-size: 1.1em;
+  padding: 20px 50px;
   /* border-radius: 0.5em; */
   border: none;
+  border-radius: 0.5em;
   background-color: #000;
   color: #fff;
   cursor: pointer;
@@ -25,7 +26,8 @@ box-shadow: 2px 2px 3px #000000b4;
 }
 
 .rgb-container {
-  padding: 2px 2px;
+  padding: 3px 3px;
+  border-radius: 0.5em;
   display: inline-block;
   position: relative;
   background: linear-gradient(90deg, #03a9f4, #f441a5);

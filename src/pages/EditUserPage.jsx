@@ -6,27 +6,26 @@ import '../styles/elements/simple_input.css'
 
 export default function EditUser(){
 
-    const url_arg = useParams()
-    const uid = url_arg.id
+    const { id } = useParams()
     const [user_state, set_user_state] = useState(null)
   
     
     useEffect(()=>{
-        async function get_user_data(){
+        async function get_user_data() {
             try {
-                const response = await fetch(`http://localhost:5000/users/${uid}`)
-                const data = await response.json()
+                const response = await fetch(`http://localhost:5000/api/users/${id}`);
+                const data = await response.json();
                 if (response.ok) {
-                    set_user_state(data)
-                }else{
+                    set_user_state(data);
+                } else {
                     alert('Fetching user data failed...')
                 }
             } catch (error) {
-                console.error(error)
-            }
+                console.error('Error fetching user data:', error);
+              }
         }
         get_user_data()
-    },[uid])
+    },[id])
 
     let display_user
     if(user_state){
@@ -35,7 +34,7 @@ export default function EditUser(){
             <div className="rgb-card">
             <p className="heading">{user_state.name}</p>
             <p>Age : {user_state.age}</p>
-            <p>Id : {user_state.id}</p>
+            <p>Id : {user_state.id_}</p>
             </div>
         </div>
 

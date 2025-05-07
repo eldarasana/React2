@@ -4,8 +4,7 @@ import Update from '../components/buttons/Update'
 
 export default function EditGame(){
 
-    const url_arg = useParams()
-    const id = url_arg.id
+    const { id } = useParams()
    
     // FETCH ID
     const type='games'
@@ -13,7 +12,7 @@ export default function EditGame(){
     useEffect(()=>{
         async function get_obj_data(){
             try {
-                const response = await fetch(`http://localhost:5000/${type}/${id}`)
+                const response = await fetch(`http://localhost:5000/api/games/${id}`)
                 const data = await response.json()
                 if (response.ok) {
                     set_obj_state(data)
@@ -35,9 +34,9 @@ export default function EditGame(){
         
         <div className='card_wrapper'>
             <div className="rgb-card">
-                <p className="heading">{obj_state.name}</p>
-                <p>Released : {obj_state.released}</p>
-                <p>Id : {obj_state.id}</p>
+                <p className="heading">{obj_state.title}</p>
+                <p>Released : {obj_state.releaseDate.split("T")[0]}</p>
+                <p>Id : {obj_state._id}</p>
             </div>
         </div>
 
@@ -58,8 +57,8 @@ export default function EditGame(){
                 <div className='simple-input-wrapper'>
                     <div className="input-group">
                     <input required="" type="text" name="text" autoComplete="off" className="input"
-                        onChange={ (e)=>{ set_obj_state( state => state ? {...state, name:e.target.value} : state ) } }
-                        value={obj_state?.name || ''}/>
+                        onChange={ (e)=>{ set_obj_state( state => state ? {...state, title:e.target.value} : state ) } }
+                        value={obj_state?.title || ''}/>
                     <label className="user-label">Name</label>
                     </div>
                 </div>
@@ -76,7 +75,7 @@ export default function EditGame(){
                             </div>
                         </div>
                         <div className='span-wrapper'>
-                            <span>{obj_state?.released || 0}</span>
+                            <span>{obj_state?.releaseDate || 0}</span>
                         </div>
                         <div className='rgb-container-wrapper'>
                             <div className='rgb-container'>

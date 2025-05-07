@@ -7,7 +7,7 @@ export default function Delete({del_id, type}){
 
     async function del(g_del_id){
         try {
-            const response = await fetch(`http://localhost:5000/${type}/${g_del_id}`, {
+            const response = await fetch(`http://localhost:5000/api/${type}/${g_del_id}`, {
                 method:'DELETE' ,
                 headers:{
                     'Content-Type':'application/json',
